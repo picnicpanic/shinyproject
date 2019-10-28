@@ -14,3 +14,5 @@ WHERE
 I then used r to further breakdown the 500mb dataset into a 75mb one by removing NAs, unused columns, taxi companys that did not have high enough frequency (would overpopulate graphs).
 
 The shiny app provided allows you to select starting and ending destination points based on the community map of chicago. It then shows graphs corresponding to the number of trips and fare/tip amounts by taxi companies. It also has a infobox showing the average travel time between the two communities as well as the distance the taxi would have to travel.
+
+https://sathyamkr.shinyapps.io/Shiny_Taxi_Project/
