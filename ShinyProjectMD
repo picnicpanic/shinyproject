@@ -1,0 +1,16 @@
+Obtained dataset from kaggle:
+https://www.kaggle.com/chicago/chicago-taxi-trips-bq
+
+Dataset was huge. Used google bigquery to obtain a subset of the data of just the taxi trips from last month. Resulting data set was much smaller and more manageable considering upload limits to shiny hosting. Still pretty big though.
+
+bigquery syntax below:
+
+SELECT*
+FROM 
+  `bigquery-public-data.chicago_taxi_trips.taxi_trips`
+WHERE
+  EXTRACT(YEAR FROM trip_start_timestamp)=2019 AND EXTRACT(MONTH FROM trip_start_timestamp)=9;
+
+I then used r to further breakdown the 500mb dataset into a 75mb one by removing NAs, unused columns, taxi companys that did not have high enough frequency (would overpopulate graphs).
+
+The shiny app provided allows you to select starting and ending destination points based on the community map of chicago. It then shows graphs corresponding to the number of trips and fare/tip amounts by taxi companies. It also has a infobox showing the average travel time between the two communities as well as the distance the taxi would have to travel.
